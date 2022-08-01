@@ -58,7 +58,7 @@ public final class Transaction {
 		
 		JSONArray stock = jsonTransaction.getJSONArray("current_stock");
 		
-		ArrayList<ProductStock> currentStock = new ArrayList<ProductStock>();
+		ArrayList<ProductStock> currentStock = new ArrayList<>();
 		for (int i = 0; i < 2; i++) {
 			JSONObject stockProduct = stock.getJSONObject(i);
 			currentStock.add(new ProductStock(stockProduct));
@@ -77,12 +77,16 @@ public final class Transaction {
 		transaction.put("actor", this.actor);
 		transaction.put("action_datetime", this.actionDateTime);
 		
-		ArrayList<JSONObject> currentStock = new ArrayList<JSONObject>();
+		ArrayList<JSONObject> currentStock = new ArrayList<>();
 		for (ProductStock productStock : this.currentStock) {
 			currentStock.add(productStock.getJSONProductStock());
 		}
 		transaction.put("current_stock", currentStock);
 		
 		return transaction;
+	}
+	
+	public ArrayList<ProductStock> getCurrentStock() {
+		return currentStock;
 	}
 }
