@@ -24,11 +24,11 @@ public final class ProductStock {
 	}
 	
 	/**
-	 * @param jsonObject Product's stock information taken from the inventory file.
+	 * @param jsonStock Product's stock information taken from the inventory file.
 	 */
-	public ProductStock(JSONObject jsonObject) {
-		this.product = Product.getProduct(jsonObject.getString("c_product"));
-		this.quantity = jsonObject.getInt("c_quantity");
+	public ProductStock(JSONObject jsonStock) {
+		this.product = Product.getProduct(jsonStock.getString("c_product"));
+		this.quantity = jsonStock.getInt("c_quantity");
 	}
 	
 	public Product getProduct() {

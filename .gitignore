@@ -3,6 +3,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+/src/jar/target/
 .iml
 
 ### Eclipse ###
@@ -29,3 +30,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Java ###
+.class
