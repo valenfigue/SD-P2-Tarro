@@ -1,5 +1,7 @@
 package Common;
 
+import Inventory.ProductStock;
+
 /**
  * Has all the products to use in the system.
  *
@@ -58,5 +60,17 @@ public enum Product {
 		}
 		
 		return false;
+	}
+	
+	/**
+	 * Compares two products.
+	 *
+	 * @param productStock Product to compare.
+	 * @return True if they have the same name, false if they not.
+	 */
+	public boolean isEqualTo(ProductStock productStock) {
+		Product product = productStock.getProduct();
+		
+		return this.getProductName().equals(product.getProductName());
 	}
 }

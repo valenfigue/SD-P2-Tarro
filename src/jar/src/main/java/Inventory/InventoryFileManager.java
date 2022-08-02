@@ -67,7 +67,7 @@ public class InventoryFileManager {
 		}
 		
 		try (PrintWriter writer = new PrintWriter(new FileWriter(INVENTORY_FILE_PATH))) {
-			writer.write(jsonTransactions.toString());
+			writer.write(jsonTransactions.toString(2));
 		} catch (IOException e) {
 			System.out.println("Hubo un problema al intentar crear el archivo de inventario.");
 		}

@@ -33,6 +33,7 @@ enum Client {
 		return switch (name) {
 			case "Consumidor" -> Client.CONSUMER;
 			case "Productor" -> Client.PRODUCER;
+			default -> null;
 		};
 	}
 	
