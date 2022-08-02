@@ -22,6 +22,7 @@
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+        <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
