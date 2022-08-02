@@ -1,5 +1,6 @@
 package Inventory;
 
+import Common.Client;
 import Common.Product;
 import org.json.JSONArray;
 import org.json.simple.parser.ParseException;

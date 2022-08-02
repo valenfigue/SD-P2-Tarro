@@ -62,5 +62,37 @@
       }
     ],
     "action_datetime": "02/08/2022 02:49:28:6 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto B",
+    "quantity": 40,
+    "current_stock": [
+      {
+        "c_quantity": 60,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 80,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "02/08/2022 06:53:16:6 p. m."
+  },
+  {
+    "actor": "Consumidor",
+    "product": "Producto B",
+    "quantity": 40,
+    "current_stock": [
+      {
+        "c_quantity": 60,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 40,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "02/08/2022 06:58:06:4 p. m."
   }
 ]

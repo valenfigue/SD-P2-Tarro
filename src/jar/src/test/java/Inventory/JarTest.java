@@ -1,5 +1,6 @@
 package Inventory;
 
+import Common.Client;
 import Common.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
