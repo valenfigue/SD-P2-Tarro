@@ -14,14 +14,11 @@ public enum Product {
 	 * @return Product name
 	 */
 	public String getProductName() {
-		switch (this) {
-			case A:
-				return "Producto A";
-			case B:
-				return "Producto B";
-			default:
-				return null;
-		}
+		return switch (this) {
+			case A -> "Producto A";
+			case B -> "Producto B";
+			default -> null;
+		};
 	}
 	
 	/**
