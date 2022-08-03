@@ -11,7 +11,7 @@ import org.json.JSONArray;
  *
  * @author valen
  */
-abstract class RMIServerClient extends Thread implements IClient {
+abstract class ClientRMIServer extends Thread implements IClient {
 	
 	protected Product product;
 	protected int quantity;
@@ -26,7 +26,7 @@ abstract class RMIServerClient extends Thread implements IClient {
 	 *            or a producer will add more products to.
 	 * @param client The type of client.
 	 */
-	public RMIServerClient(Jar jar, Client client) {
+	public ClientRMIServer(Jar jar, Client client) {
 		this.jar = jar;
 		this.client = client;
 	}

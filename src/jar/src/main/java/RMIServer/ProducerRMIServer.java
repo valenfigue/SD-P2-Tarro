@@ -3,7 +3,12 @@ package RMIServer;
 import Common.Client;
 import Inventory.Jar;
 
-public class ProducerRMIServer extends RMIServerClient {
+/**
+ * Remote producer to be used in an RMI system.
+ *
+ * @author valen
+ */
+public class ProducerRMIServer extends ClientRMIServer {
 	/**
 	 * Creates a RMIServer Client with the system-single jar for the producer or a consumer.
 	 *
