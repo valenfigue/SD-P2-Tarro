@@ -1,11 +1,11 @@
-package Inventory;
+package Common;
 
 /**
  * Has all the clients that will interact through the system.
  *
  * @author valen
  */
-enum Client {
+public enum Client {
 	/**
 	 * Who consume the jar's products.
 	 */

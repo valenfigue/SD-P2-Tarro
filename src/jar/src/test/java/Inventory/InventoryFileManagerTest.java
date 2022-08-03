@@ -26,13 +26,4 @@ class InventoryFileManagerTest {
 		
 		assertFalse(transactions.isEmpty());
 	}
-	
-	/*@Test
-	void setInventory() {
-		InventoryFileManager manager = new InventoryFileManager();
-		ArrayList<Transaction> transactions = manager.getInventory();
-		
-//		ProductStock productAStock = transactions.get(transactions.size()-1).getCurrentStock()
-//		Transaction newTransaction = new Transaction()
-	}*/
 }

@@ -3,8 +3,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-/src/jar/target/
-.iml
+*.iml
 
 ### Eclipse ###
 .apt_generated
@@ -32,4 +31,7 @@ bin/
 .DS_Store
 
 ### Java ###
-.class
+*.class
+
+### Jar module ###
+/src/jar/target/
