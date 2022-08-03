@@ -5,6 +5,8 @@ import Inventory.Jar;
 
 /**
  * Remote producer to be used in an RMI system.
+ * <p></p>
+ * ATTENTION: just for tests purposes.
  *
  * @author valen
  */
@@ -17,13 +19,5 @@ public class ProducerRMIServer extends ClientRMIServer {
 	 */
 	public ProducerRMIServer(Jar jar) {
 		super(jar, Client.PRODUCER);
-	}
-	
-	/**
-	 * Updates the inventory according to the client (consumer or producer) that calls the method.
-	 */
-	@Override
-	public void updateInventory() {
-		this.jar.updateInventory(this.client, this.product, this.quantity);
 	}
 }

@@ -6,8 +6,12 @@ import Inventory.Jar;
 import RMICommon.IClient;
 import org.json.JSONArray;
 
+import java.rmi.RemoteException;
+
 /**
  * Encapsulates most of the behaviors that a consumer and a producer do.
+ * <p></p>
+ * ATTENTION: just for tests purposes.
  *
  * @author valen
  */
@@ -26,14 +30,14 @@ abstract class ClientRMIServer extends Thread implements IClient {
 	 *            or a producer will add more products to.
 	 * @param client The type of client.
 	 */
-	public ClientRMIServer(Jar jar, Client client) {
+	ClientRMIServer(Jar jar, Client client) {
 		this.jar = jar;
 		this.client = client;
 	}
 	
 	@Override
 	public void run() {
-		this.updateInventory();
+		this.jar.updateInventory(this.client, this.product, this.quantity);
 	}
 	
 	/**
@@ -64,5 +68,13 @@ abstract class ClientRMIServer extends Thread implements IClient {
 	@Override
 	public JSONArray checkInventory() {
 		return jar.getInventory();
+	}
+	
+	/**
+	 * Updates the inventory according to the client (consumer or producer) that calls the method.
+	 */
+	@Override
+	public void updateInventory() throws RemoteException {
+		this.jar.updateInventory(this.client, this.product, this.quantity);
 	}
 }
