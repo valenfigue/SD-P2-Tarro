@@ -10,10 +10,14 @@ import java.io.IOException;
  */
 public class Coordinator {
 	public static void main(String[] args) {
+		System.out.println("Coordinador de réplicas y restauración, iniciado.");
+		
 		// TODO: to implement socket communication with the Web Server.
 		String webServerRequest = "RESPALDAR".toUpperCase();
 		
 		try {
+			System.out.println("El servidor web pidió " + webServerRequest + "el archivo del inventario.");
+			
 			switch (webServerRequest) {
 				case "RESTAURAR":
 					Restorer restorer = new Restorer();

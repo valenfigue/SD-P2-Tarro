@@ -33,7 +33,11 @@ public class Backer extends Helper{
 		String globalMessage = inputStream.readUTF(); // Receiving global message from coordinator.
 		
 		if (globalMessage.equals("GLOBAL_COMMIT")) {
+			System.out.println("Iniciando respaldo del inventario.");
 			this.receiveInventoryFile();
+		} else if (globalMessage.equals("GLOBAL_ABORT")) {
+			System.out.println("Abortando respaldo del inventario.");
+			this.outputStream.writeUTF("OK");
 		}
 	}
 	

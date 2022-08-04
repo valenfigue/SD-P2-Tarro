@@ -28,9 +28,11 @@ public class Backer {
 		String globalMessage = globalCommit ? "GLOBAL_COMMIT" : "GLOBAL_ABORT";
 		
 		if (globalCommit) {
+			System.out.println("Respaldo del inventario, iniciado.");
 			this.server1.sendInventoryFile(globalMessage);
 			this.server2.sendInventoryFile(globalMessage);
 		} else {
+			System.out.println("Respaldo del inventario, abortado.");
 			this.server1.sendVoteRequestToRRServer(globalMessage);
 			this.server2.sendVoteRequestToRRServer(globalMessage);
 		}
