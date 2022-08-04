@@ -53,11 +53,11 @@ public class RRServerConnection {
 		switch (server) {
 			case 1 -> { // Server 1.
 				serverIP = SERVER_IP;
-				port = 6000;
+				port = 6001;
 			}
 			case 2 -> { // Server 2.
 				serverIP = SERVER_IP;
-				port = 6001;
+				port = 6002;
 			}
 		}
 		
@@ -116,9 +116,9 @@ public class RRServerConnection {
 		this.outputStream.writeUTF(globalMessage);
 		
 		final String LOCAL_INVENTORY_PATH = "src/main/resources/inventory.json";
-		File localInventoryFile = new File(LOCAL_INVENTORY_PATH);
 		
 		try {
+			File localInventoryFile = new File(LOCAL_INVENTORY_PATH);
 			BufferedInputStream bis = new BufferedInputStream(this.serverSocket.getInputStream());
 			// Creating a local inventory file to not overwrite the real one. It will be moved later.
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(localInventoryFile));
