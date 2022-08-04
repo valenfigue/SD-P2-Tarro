@@ -6,9 +6,9 @@ import java.net.Socket;
 public class ReplicaRestorerServer {
 	
 	@SuppressWarnings("InfiniteLoopStatement")
-	public void startListening(int serverNumber) {
-		try (ServerSocket serverSocket = new ServerSocket(6000)) {
-			System.out.println("\nServidor iniciado.\n");
+	public void startListening(int serverNumber, int serverPort) {
+		try (ServerSocket serverSocket = new ServerSocket(serverPort)) {
+			System.out.println("\nServidor de réplica y restauración, iniciado.\n");
 			
 			while (true) {
 				Socket coordinatorSocket = serverSocket.accept();

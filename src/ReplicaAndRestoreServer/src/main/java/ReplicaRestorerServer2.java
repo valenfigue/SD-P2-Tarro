@@ -1,6 +1,6 @@
 public class ReplicaRestorerServer2 {
 	public static void main(String[] args) {
 		ReplicaRestorerServer server = new ReplicaRestorerServer();
-		server.startListening(2);
+		server.startListening(2, 6002);
 	}
 }

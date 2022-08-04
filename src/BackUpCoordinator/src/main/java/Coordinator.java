@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Coordinator {
 	public static void main(String[] args) {
 		// TODO: to implement socket communication with the Web Server.
-		String webServerRequest = "".toUpperCase();
+		String webServerRequest = "RESPALDAR".toUpperCase();
 		
 		try {
 			switch (webServerRequest) {
