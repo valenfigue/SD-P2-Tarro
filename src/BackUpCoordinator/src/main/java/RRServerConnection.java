@@ -51,17 +51,16 @@ public class RRServerConnection {
 		int port = 0;
 		
 		switch (server) {
-			case 1 -> { // Server 1.
+			case 1: // Server 1.
 				serverIP = SERVER_IP;
 				port = 6001;
-			}
-			case 2 -> { // Server 2.
+			case 2: // Server 2.
 				serverIP = SERVER_IP;
 				port = 6002;
-			}
 		}
 		
-		return new Socket(serverIP, port);
+		return new Socket(SERVER_IP, port);
+//		return new Socket(serverIP, port);
 	}
 	
 	/**
