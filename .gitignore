@@ -35,3 +35,9 @@ bin/
 
 ### Jar module ###
 /src/jar/target/
+
+### BackUpCoordinator module ###
+/src/BackUpCoordinator/target/
+
+### ReplicaAndRestoreServer module ###
+/src/ReplicaAndRestoreServer/target/
