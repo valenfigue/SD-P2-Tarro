@@ -41,6 +41,40 @@ public enum Product {
 	}
 	
 	/**
+	 * Takes a product's long name (from the inventory file) and returns a product that match with the given name.
+	 *
+	 * @param choice User selection of a product.
+	 * @return A product.
+	 */
+	public static Product getProduct(int choice) {
+		if (choice == 1) {
+			return Product.A;
+		}
+		if (choice == 2) {
+			return Product.B;
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Takes a product's long name (from the inventory file) and returns a product that match with the given name.
+	 *
+	 * @param name Product's name.
+	 * @return A product.
+	 */
+	public static Product getProduct(char name) {
+		if (name == 'A') {
+			return Product.A;
+		}
+		if (name == 'B') {
+			return Product.B;
+		}
+		
+		return null;
+	}
+	
+	/**
 	 * @return True if the product is A, false if not.
 	 */
 	public boolean isProductA() {

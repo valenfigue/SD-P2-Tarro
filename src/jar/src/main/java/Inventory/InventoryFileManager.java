@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author valen
  */
 public class InventoryFileManager {
-	private final String INVENTORY_FILE_PATH = "src/main/resources/inventory.json";
+	private final String INVENTORY_FILE_PATH = "D:\\Proyectos\\(1)Universidad\\2022_Sistemas_Distribuidos\\SD-P2-Tarro\\src\\jar\\src\\main\\resources\\inventory.json";
 	
 	/**
 	 * Gets a list of all the transactions registered in the inventory file.

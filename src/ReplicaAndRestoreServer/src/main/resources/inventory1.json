@@ -94,5 +94,117 @@
       }
     ],
     "action_datetime": "02/08/2022 06:58:06:4 p. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto A",
+    "quantity": 60,
+    "current_stock": [
+      {
+        "c_quantity": 120,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 40,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 07:21:39:7 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto B",
+    "quantity": 40,
+    "current_stock": [
+      {
+        "c_quantity": 120,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 80,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 07:21:40:1 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto A",
+    "quantity": 60,
+    "current_stock": [
+      {
+        "c_quantity": 180,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 80,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 07:21:49:2 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto B",
+    "quantity": 40,
+    "current_stock": [
+      {
+        "c_quantity": 180,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 120,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 07:21:49:3 a. m."
+  },
+  {
+    "actor": "Consumidor",
+    "product": "Producto A",
+    "quantity": 10,
+    "current_stock": [
+      {
+        "c_quantity": 170,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 120,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 08:16:17:9 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto A",
+    "quantity": 60,
+    "current_stock": [
+      {
+        "c_quantity": 230,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 120,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 09:30:26:3 a. m."
+  },
+  {
+    "actor": "Productor",
+    "product": "Producto B",
+    "quantity": 40,
+    "current_stock": [
+      {
+        "c_quantity": 230,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 160,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 09:30:27:7 a. m."
   }
 ]
