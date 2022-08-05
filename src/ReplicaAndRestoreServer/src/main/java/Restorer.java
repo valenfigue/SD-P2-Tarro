@@ -33,12 +33,15 @@ public class Restorer extends Helper{
 				BufferedInputStream bis = new BufferedInputStream(fis);
 				BufferedOutputStream bos = new BufferedOutputStream(this.coordinatorSocket.getOutputStream());
 				
+				System.out.println("Enviando archivo...\n");
 				while ((in = bis.read(fileContent)) != -1) {
 					bos.write(fileContent, 0, in);
 				}
 				
 				bis.close();
 				bos.close();
+				
+				System.out.println("Archivo enviado.\n\n");
 			} catch (FileNotFoundException e) {
 				System.out.println("El archivo de inventario no ha sido encontrado.\n");
 			}

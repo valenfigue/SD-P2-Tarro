@@ -28,7 +28,7 @@ public class Backer extends Helper{
 	 *
 	 * @throws IOException if some I/O error occurs.
 	 */
-	public synchronized void backUpInventory() throws IOException {
+	public void backUpInventory() throws IOException {
 		String vote = this.vote();
 		System.out.println("Voto del servidor: " + vote + "\n");
 		outputStream.writeUTF(vote); // Sending vote to coordinator.
@@ -78,18 +78,11 @@ public class Backer extends Helper{
 			while ((in = bis.read(receivedData)) != -1) {
 				bos.write(receivedData, 0, in);
 			}
-//			bos.close();
+			bos.close();
+			
+			System.out.println("Archivo recibido.\n\n");
 		} catch (FileNotFoundException e) {
 			System.out.println("El archivo de inventario no ha sido encontrado.\n");
-		}
-	}
-	
-	@Override
-	public void run() {
-		try {
-			this.backUpInventory();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		}
 	}
 }

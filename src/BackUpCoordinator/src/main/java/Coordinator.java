@@ -23,7 +23,7 @@ public class Coordinator {
 			String continuar = new Scanner(System.in).next();
 			System.out.println();
 			if (continuar.equals("s")) {
-				String webServerRequest = "RESPALDAR".toUpperCase();
+				String webServerRequest = "RESTAURAR".toUpperCase();
 				
 				try {
 					System.out.println("El servidor web pidió " + webServerRequest + " el archivo del inventario.\n");

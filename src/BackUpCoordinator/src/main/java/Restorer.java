@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Helps the coordinator to restore the inventory file.
@@ -20,7 +21,13 @@ public class Restorer {
 	public void restoreInventory() throws IOException {
 		String globalMessage = "RESTORE";
 		
-		this.server1.receiveInventoryFile(globalMessage);
-		this.server2.receiveInventoryFile(globalMessage);
+		Random random = new Random();
+		boolean server = random.nextBoolean();
+		
+		if (server) { // To chose just one replica.
+			this.server1.receiveInventoryFile(globalMessage);
+		} else {
+			this.server2.receiveInventoryFile(globalMessage);
+		}
 	}
 }

@@ -47,20 +47,9 @@ public class RRServerConnection {
 	private Socket getServerSocket(int server) throws IOException {
 		String SERVER_IP = "localhost";
 		
-		String serverIP = "";
-		int port = 0;
-		
-		switch (server) {
-			case 1: // Server 1.
-				serverIP = SERVER_IP;
-				port = 6001;
-			case 2: // Server 2.
-				serverIP = SERVER_IP;
-				port = 6002;
-		}
+		int port = server == 1 ? 6001 : 6002;
 		
 		return new Socket(SERVER_IP, port);
-//		return new Socket(serverIP, port);
 	}
 	
 	/**
@@ -76,8 +65,6 @@ public class RRServerConnection {
 	
 	public void sendAbortionMessage(String message) throws IOException {
 		this.outputStream.writeUTF(message);
-		
-//		this.serverSocket.close();
 	}
 	
 	/**
@@ -102,6 +89,8 @@ public class RRServerConnection {
 			
 			bis.close();
 			bos.close();
+			
+			System.out.println("Archivo enviado.\n\n");
 		} catch (FileNotFoundException e) {
 			System.out.println("El archivo de inventario no ha sido encontrado.");
 		}
@@ -131,6 +120,7 @@ public class RRServerConnection {
 			byte[] receivedData = new byte[1024];
 			int in;
 			
+			System.out.println("Recibiendo archivo...\n");
 			while ((in = bis.read(receivedData)) != -1) {
 				bos.write(receivedData, 0, in);
 			}
@@ -142,8 +132,10 @@ public class RRServerConnection {
 				
 				Files.move(localInventoryFile.toPath(), inventoryFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 			}
+			
+			System.out.println("Archivo recibido.\n\n");
 		} catch (FileNotFoundException e) {
-			System.out.println("El archivo de inventario no ha sido encontrado.");
+			System.out.println("El archivo de inventario no ha sido encontrado.\n");
 		}
 	}
 }

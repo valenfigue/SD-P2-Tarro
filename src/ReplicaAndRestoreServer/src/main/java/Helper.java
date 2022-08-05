@@ -3,7 +3,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Helper extends Thread {
+public class Helper {
 	/**
 	 * Replica and restore coordinator's socket.
 	 */
