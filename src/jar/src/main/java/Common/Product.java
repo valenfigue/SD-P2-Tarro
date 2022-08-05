@@ -41,6 +41,23 @@ public enum Product {
 	}
 	
 	/**
+	 * Takes a product's long name (from the inventory file) and returns a product that match with the given name.
+	 *
+	 * @param name Product's name.
+	 * @return A product.
+	 */
+	public static Product getProduct(char name) {
+		if (name == 'A') {
+			return Product.A;
+		}
+		if (name == 'B') {
+			return Product.B;
+		}
+		
+		return null;
+	}
+	
+	/**
 	 * @return True if the product is A, false if not.
 	 */
 	public boolean isProductA() {
