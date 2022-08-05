@@ -12,6 +12,8 @@ import java.util.Scanner;
  * @author valen
  */
 public class Coordinator {
+	
+	@SuppressWarnings("InfiniteLoopStatement")
 	public static void main(String[] args) {
 		System.out.println("Coordinador de réplicas y restauración, iniciado.");
 		

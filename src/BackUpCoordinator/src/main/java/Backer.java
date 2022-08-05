@@ -6,8 +6,8 @@ import java.io.IOException;
  * @author valen
  */
 public class Backer {
-	private final RRServerConnection server1 = new RRServerConnection(1);
-	private final RRServerConnection server2 = new RRServerConnection(2);
+	private final RRServerConnection server2 = new RRServerConnection(1);
+	private final RRServerConnection server1 = new RRServerConnection(2);
 	
 	public Backer() throws IOException {}
 	
@@ -29,12 +29,12 @@ public class Backer {
 		
 		if (globalCommit) {
 			System.out.print("Respaldo del inventario, iniciado. ");
-			this.server1.sendInventoryFile(globalMessage);
-//			this.server2.sendInventoryFile(globalMessage);
+			this.server2.sendInventoryFile(globalMessage);
+//			this.server1.sendInventoryFile(globalMessage);
 		} else {
 			System.out.println("Respaldo del inventario, abortado.\n");
-			this.server1.sendAbortionMessage(globalMessage);
-//			this.server2.sendAbortionMessage(globalMessage);
+			this.server2.sendAbortionMessage(globalMessage);
+//			this.server1.sendAbortionMessage(globalMessage);
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class Backer {
 		//noinspection unused
 		String abort = "VOTE_ABORT"; // A vote to don't do the replication.
 		
-		return server1.sendVoteRequestToRRServer(request).equals(commit)
-              /*&& server2.sendVoteRequestToRRServer(request).equals(commit)*/;
+		return server2.sendVoteRequestToRRServer(request).equals(commit)
+              /*&& server1.sendVoteRequestToRRServer(request).equals(commit)*/;
 	}
 }
