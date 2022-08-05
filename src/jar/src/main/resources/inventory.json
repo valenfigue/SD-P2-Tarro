@@ -158,5 +158,21 @@
       }
     ],
     "action_datetime": "05/08/2022 07:21:49:3 a. m."
+  },
+  {
+    "actor": "Consumidor",
+    "product": "Producto A",
+    "quantity": 10,
+    "current_stock": [
+      {
+        "c_quantity": 170,
+        "c_product": "Producto A"
+      },
+      {
+        "c_quantity": 120,
+        "c_product": "Producto B"
+      }
+    ],
+    "action_datetime": "05/08/2022 08:16:17:9 a. m."
   }
 ]

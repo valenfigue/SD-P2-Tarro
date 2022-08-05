@@ -19,32 +19,33 @@ public class Coordinator {
 		
 		// TODO: to implement socket communication with the Web Server.
 		while (true) {
-			System.out.print("Continuar: ");
-			String continuar = new Scanner(System.in).next();
+			System.out.println("Seleccione una opción: ");
+			System.out.println("1. Restaurar.");
+			System.out.println("2. Respaldar.");
+			System.out.println("Respuesta: ");
+			int respond = new Scanner(System.in).nextInt();
 			System.out.println();
-			if (continuar.equals("s")) {
-				String webServerRequest = "RESTAURAR".toUpperCase();
+//				String webServerRequest = "RESTAURAR".toUpperCase();
+			
+			try {
+//				System.out.println("El servidor web pidió " + webServerRequest + " el archivo del inventario.\n");
 				
-				try {
-					System.out.println("El servidor web pidió " + webServerRequest + " el archivo del inventario.\n");
-					
-					switch (webServerRequest) {
-						case "RESTAURAR":
-							Restorer restorer = new Restorer();
-							restorer.restoreInventory();
-							break;
-						case "RESPALDAR":
-							Backer backer = new Backer();
-							backer.backUpInventory();
-							break;
-					}
-				} catch (ConnectException e) {
-					System.out.println("El servidor que ha elegido no se encuentra disponible en este momento.\n");
-				} catch (SocketException e) {
-					System.out.println("El servidor de réplicas y restauración se desconectó.");
-				} catch (IOException e) {
-					throw new RuntimeException(e);
+				switch (respond) {
+					case 1:
+						Restorer restorer = new Restorer();
+						restorer.restoreInventory();
+						break;
+					case 2:
+						Backer backer = new Backer();
+						backer.backUpInventory();
+						break;
 				}
+			} catch (ConnectException e) {
+				System.out.println("El servidor que ha elegido no se encuentra disponible en este momento.\n");
+			} catch (SocketException e) {
+				System.out.println("El servidor de réplicas y restauración se desconectó.");
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
