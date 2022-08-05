@@ -28,13 +28,13 @@ public class Backer {
 		String globalMessage = globalCommit ? "GLOBAL_COMMIT" : "GLOBAL_ABORT";
 		
 		if (globalCommit) {
-			System.out.println("Respaldo del inventario, iniciado.");
+			System.out.print("Respaldo del inventario, iniciado. ");
 			this.server1.sendInventoryFile(globalMessage);
-			this.server2.sendInventoryFile(globalMessage);
+//			this.server2.sendInventoryFile(globalMessage);
 		} else {
-			System.out.println("Respaldo del inventario, abortado.");
-			this.server1.sendVoteRequestToRRServer(globalMessage);
-			this.server2.sendVoteRequestToRRServer(globalMessage);
+			System.out.println("Respaldo del inventario, abortado.\n");
+			this.server1.sendAbortionMessage(globalMessage);
+//			this.server2.sendAbortionMessage(globalMessage);
 		}
 	}
 	
@@ -52,6 +52,6 @@ public class Backer {
 		String abort = "VOTE_ABORT"; // A vote to don't do the replication.
 		
 		return server1.sendVoteRequestToRRServer(request).equals(commit)
-              && server2.sendVoteRequestToRRServer(request).equals(commit);
+              /*&& server2.sendVoteRequestToRRServer(request).equals(commit)*/;
 	}
 }

@@ -29,15 +29,16 @@ public class Backer extends Helper{
 	 * @throws IOException if some I/O error occurs.
 	 */
 	public void backUpInventory() throws IOException {
-		outputStream.writeUTF(this.vote()); // Sending vote to coordinator.
-		String globalMessage = inputStream.readUTF(); // Receiving global message from coordinator.
+		String vote = this.vote();
+		System.out.println("Voto del servidor: " + vote + "\n");
+		outputStream.writeUTF(vote); // Sending vote to coordinator.
 		
+		String globalMessage = inputStream.readUTF(); // Receiving global message from coordinator.
 		if (globalMessage.equals("GLOBAL_COMMIT")) {
-			System.out.println("Iniciando respaldo del inventario.");
+			System.out.print("Iniciando respaldo del inventario. ");
 			this.receiveInventoryFile();
 		} else if (globalMessage.equals("GLOBAL_ABORT")) {
-			System.out.println("Abortando respaldo del inventario.");
-			this.outputStream.writeUTF("OK");
+			System.out.println("\nAbortando respaldo del inventario.\n");
 		}
 	}
 	
@@ -59,17 +60,27 @@ public class Backer extends Helper{
 	private void receiveInventoryFile() throws IOException {
 		try {
 			File inventoryFile = new File(this.inventoryFilePath);
+			
+			if (!inventoryFile.exists()) {
+				if (inventoryFile.createNewFile()) {
+					System.out.println("Un nuevo archivo de inventario ha sido creado en el servidor.\n");
+				} else {
+					System.out.println("El archivo de inventario no se pudo crear en el servidor.\n");
+				}
+			}
+			
 			BufferedInputStream bis = new BufferedInputStream(this.coordinatorSocket.getInputStream());
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(inventoryFile));
 			byte[] receivedData = new byte[1024];
 			int in;
 			
+			System.out.println("Recibiendo archivo...\n");
 			while ((in = bis.read(receivedData)) != -1) {
 				bos.write(receivedData, 0, in);
 			}
 			bos.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("El archivo de inventario no ha sido encontrado.");
+			System.out.println("El archivo de inventario no ha sido encontrado.\n");
 		}
 	}
 }

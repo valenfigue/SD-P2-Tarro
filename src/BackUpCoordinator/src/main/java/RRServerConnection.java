@@ -74,6 +74,12 @@ public class RRServerConnection {
 		return this.inputStream.readUTF();
 	}
 	
+	public void sendAbortionMessage(String message) throws IOException {
+		this.outputStream.writeUTF(message);
+		
+//		this.serverSocket.close();
+	}
+	
 	/**
 	 * @param globalMessage A message to tell the replica-and-restore server that the replication is going to happen.
 	 * @throws IOException if some I/O error occurs during communication with the server.
@@ -89,6 +95,7 @@ public class RRServerConnection {
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			BufferedOutputStream bos = new BufferedOutputStream(this.serverSocket.getOutputStream());
 			
+			System.out.println("Enviando archivo...\n");
 			while ((in = bis.read(fileContent)) != -1) {
 				bos.write(fileContent, 0, in);
 			}

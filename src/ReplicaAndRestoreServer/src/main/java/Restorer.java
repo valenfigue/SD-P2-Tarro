@@ -24,22 +24,26 @@ public class Restorer extends Helper{
 	 * @throws IOException if some I/O error occurs during communication with the server.
 	 */
 	public void restoreInventory() throws IOException {
-		int MAX_BYTES = 8192; // Max read bytes from the inventory file.
-		byte[] fileContent = new byte[MAX_BYTES]; // File's read bytes array.
-		int in; // The number of bytes to write.
-		
-		try (FileInputStream fis = new FileInputStream(this.inventoryFilePath)) {
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			BufferedOutputStream bos = new BufferedOutputStream(this.coordinatorSocket.getOutputStream());
+		if (new File(this.inventoryFilePath).exists()) {
+			int MAX_BYTES = 8192; // Max read bytes from the inventory file.
+			byte[] fileContent = new byte[MAX_BYTES]; // File's read bytes array.
+			int in; // The number of bytes to write.
 			
-			while ((in = bis.read(fileContent)) != -1) {
-				bos.write(fileContent, 0, in);
+			try (FileInputStream fis = new FileInputStream(this.inventoryFilePath)) {
+				BufferedInputStream bis = new BufferedInputStream(fis);
+				BufferedOutputStream bos = new BufferedOutputStream(this.coordinatorSocket.getOutputStream());
+				
+				while ((in = bis.read(fileContent)) != -1) {
+					bos.write(fileContent, 0, in);
+				}
+				
+				bis.close();
+				bos.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("El archivo de inventario no ha sido encontrado.\n");
 			}
-			
-			bis.close();
-			bos.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("El archivo de inventario no ha sido encontrado.");
+		} else {
+			System.out.println("La réplica del archivo de inventario todavía no ha sido creada. Por favor, haga una réplica, primero.\n");
 		}
 	}
 }

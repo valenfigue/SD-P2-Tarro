@@ -32,7 +32,8 @@ public class Helper {
 	 */
 	public Helper(int serverNumber, Socket coordinatorSocket) throws IOException {
 		this.coordinatorSocket = coordinatorSocket;
-		this.inventoryFilePath = "src/main/resources/inventory" + serverNumber + ".json";
+//		this.inventoryFilePath = "src/main/resources/inventory" + serverNumber + ".json";
+		this.inventoryFilePath = "D:\\Proyectos\\(1)Universidad\\2022_Sistemas_Distribuidos\\SD-P2-Tarro\\src\\ReplicaAndRestoreServer\\src\\main\\resources\\inventory" + serverNumber + ".json";
 		
 		this.inputStream = new DataInputStream(this.coordinatorSocket.getInputStream());
 		this.outputStream = new DataOutputStream(this.coordinatorSocket.getOutputStream());
