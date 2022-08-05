@@ -110,10 +110,11 @@ public class RRServerConnection {
 	public void receiveInventoryFile(String globalMessage) throws IOException {
 		this.outputStream.writeUTF(globalMessage);
 		
-		final String LOCAL_INVENTORY_PATH = "src/main/resources/inventory.json";
+		final String LOCAL_INVENTORY_PATH = "D:\\Proyectos\\(1)Universidad\\2022_Sistemas_Distribuidos\\SD-P2-Tarro\\src\\BackUpCoordinator\\src\\main\\resources\\inventory.json";
 		
 		try {
 			File localInventoryFile = new File(LOCAL_INVENTORY_PATH);
+			Files.createFile(localInventoryFile.toPath());
 			BufferedInputStream bis = new BufferedInputStream(this.serverSocket.getInputStream());
 			// Creating a local inventory file to not overwrite the real one. It will be moved later.
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(localInventoryFile));
