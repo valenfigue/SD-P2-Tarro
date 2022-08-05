@@ -17,7 +17,6 @@ public class Coordinator {
 	public static void main(String[] args) {
 		System.out.println("Coordinador de réplicas y restauración, iniciado.");
 		
-		// TODO: to implement socket communication with the Web Server.
 		while (true) {
 			System.out.println("Seleccione una opción: ");
 			System.out.println("1. Restaurar.");
